@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Streak Café - Premium Coffee Experience</title>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- Custom CSS -->
+<link href="css/style.css" rel="stylesheet"/>
+<style>
+        .loading-container {
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .logo-large {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="hero-section d-flex align-items-center justify-content-center">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-md-6 text-center loading-container">
+<div class="coffee-cup-3d"></div>
+<div class="logo-large text-white">
+<i class="fas fa-coffee"></i> Streak Café
+                </div>
+<div class="tagline text-white">
+                    Brewing Excellence, One Cup at a Time
+                </div>
+<div class="loading-spinner"></div>
+</div>
+</div>
+</div>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+        // Redirect to homepage after 3 seconds
+        setTimeout(function() {
+            window.location.href = 'pages/homepage.html';
+        }, 3000);
+    </script>
+
+<div class="modal fade" id="signupModal" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Create an Account</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form id="signupForm">
+<div class="mb-3">
+<label class="form-label" for="signupName">Name</label>
+<input class="form-control" id="signupName" required="" type="text"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="signupEmail">Email</label>
+<input class="form-control" id="signupEmail" required="" type="email"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="signupPassword">Password</label>
+<input class="form-control" id="signupPassword" minlength="6" required="" type="password"/>
+</div>
+<div class="d-grid gap-2">
+<button class="btn btn-coffee-primary" type="submit">Sign Up</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="loginModal" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Login to Streak Café</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form id="loginForm">
+<div class="mb-3">
+<label class="form-label" for="email">Email</label>
+<input class="form-control" id="email" required="" type="email"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="password">Password</label>
+<input class="form-control" id="password" required="" type="password"/>
+</div>
+<div class="d-grid gap-2">
+<button class="btn btn-coffee-primary" type="submit">Login</button>
+<button class="btn btn-outline-secondary" onclick="showRegisterModal()" type="button">Register</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  try {
+    var registered = localStorage.getItem('oc_registered');
+    var loggedIn = localStorage.getItem('oc_logged_in');
+    var showSignupFirst = !registered;
+    if (showSignupFirst) {
+      var signupEl = document.getElementById('signupModal');
+      if (signupEl && typeof bootstrap !== 'undefined') {
+        var sm = new bootstrap.Modal(signupEl);
+        sm.show();
+      }
+    } else if (!loggedIn) {
+      var loginEl = document.getElementById('loginModal');
+      if (loginEl && typeof bootstrap !== 'undefined') {
+        var lm = new bootstrap.Modal(loginEl);
+        lm.show();
+      }
+    }
+    // Signup handler
+    var signupForm = document.getElementById('signupForm');
+    if (signupForm) {
+      signupForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        localStorage.setItem('oc_registered', '1');
+        // Hide signup, show login
+        var signupEl = document.getElementById('signupModal');
+        if (signupEl && typeof bootstrap !== 'undefined') {
+          bootstrap.Modal.getOrCreateInstance(signupEl).hide();
+        }
+        var loginEl = document.getElementById('loginModal');
+        if (loginEl && typeof bootstrap !== 'undefined') {
+          bootstrap.Modal.getOrCreateInstance(loginEl).show();
+        }
+      });
+    }
+    // Login handler
+    var loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+      loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        localStorage.setItem('oc_logged_in', '1');
+        var loginEl = document.getElementById('loginModal');
+        if (loginEl && typeof bootstrap !== 'undefined') {
+          bootstrap.Modal.getOrCreateInstance(loginEl).hide();
+        }
+        // Optional: update UI to reflect logged-in state
+        var userIcon = document.querySelector('[onclick="showLoginModal()"]');
+        if (userIcon) userIcon.setAttribute('title','Logged in');
+      });
+    }
+  } catch(e) { console.warn(e); }
+});
+// utility for existing icons
+function showLoginModal(){
+  var loginEl = document.getElementById('loginModal');
+  if (loginEl && typeof bootstrap !== 'undefined') {
+    bootstrap.Modal.getOrCreateInstance(loginEl).show();
+  }
+}
+</script>
+</body>
+</html>

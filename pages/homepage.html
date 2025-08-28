@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Streak Café - Where Every Sip Feels Special</title>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- AOS Animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+<!-- Swiper CSS -->
+<link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
+<!-- Custom CSS -->
+<link href="../css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-coffee fixed-top">
+<div class="container">
+<a class="navbar-brand" href="homepage.html">
+<i class="fas fa-coffee"></i> Streak Café
+            </a>
+<button class="navbar-toggler border-0" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+<i class="fas fa-bars text-white"></i>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav mx-auto">
+<li class="nav-item">
+<a class="nav-link" href="homepage.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="coffee_collection.html">Products</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="omar_s_story.html">About</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="brewing_guides_hub.html">Guides</a>
+</li>
+</ul>
+<ul class="navbar-nav mx-auto">
+<li class="nav-item">
+<a class="nav-link position-relative" href="shopping_cart_checkout.html">
+<i class="fas fa-shopping-cart"></i>
+<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">2</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#" onclick="showLoginModal()">
+<i class="fas fa-user"></i>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#" onclick="showLogoutConfirm()">
+<i class="fas fa-sign-out-alt"></i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="hero-section">
+<div class="container">
+<div class="row align-items-center h-100">
+<div class="col-lg-6 text-center text-lg-start" data-aos="fade-right">
+<div class="coffee-cup-3d d-lg-none mb-4"></div>
+<h1 class="hero-title">Welcome to Streak Café</h1>
+<p class="hero-subtitle">Where Every Sip Feels Special</p>
+<div class="d-flex flex-column flex-md-row gap-3 justify-content-center justify-content-lg-start">
+<a class="btn btn-coffee-primary" href="coffee_collection.html">
+<i class="fas fa-shopping-bag me-2"></i>Shop Coffee
+                        </a>
+<a class="btn btn-coffee-secondary" href="omar_s_story.html">
+<i class="fas fa-book-open me-2"></i>Our Story
+                        </a>
+</div>
+</div>
+<div class="col-lg-6 d-none d-lg-block text-center" data-aos="fade-left">
+<div class="coffee-cup-3d"></div>
+</div>
+</div>
+</div>
+<div class="coffee-animation d-none d-xl-block">
+<i class="fas fa-coffee"></i>
+</div>
+</section>
+<!-- Featured Products -->
+<section class="py-5 bg-white">
+<div class="container">
+<div class="row">
+<div class="col-12 text-center mb-5" data-aos="fade-up">
+<h2 class="display-4 fw-bold mb-3" style="color: var(--coffee-brown);">Featured Products</h2>
+<p class="lead text-muted">Discover our premium coffee collection</p>
+</div>
+</div>
+<!-- Swiper -->
+<div class="swiper featuredSwiper" data-aos="fade-up">
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<div class="product-card">
+<div class="product-image">
+<img alt="Ethiopian Highland" src="../imgs/cir_img.jpg"/>
+<div class="position-absolute top-0 start-0 m-3">
+<span class="badge" style="background-color: var(--coffee-gold); color: var(--coffee-brown);">Premium</span>
+</div>
+</div>
+<div class="product-info">
+<h5 class="product-title">Omar's Spechial Coffee</h5>
+<p class="product-description">Rich, floral notes with bright acidity and a smooth </p>
+<div class="product-price">$24.99</div>
+<button class="btn btn-coffee-primary w-100" onclick="addToCart('Ethiopian Highland', 24.99)">
+<i class="fas fa-plus me-2"></i>Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="product-card">
+<div class="product-image">
+<img alt="Colombian Dark" src="../imgs/bread2.jpg"/>
+<div class="position-absolute top-0 start-0 m-3">
+<span class="badge bg-danger">Best Seller</span>
+</div>
+</div>
+<div class="product-info">
+<h5 class="product-title">Croissant French Bread</h5>
+<p class="product-description">Bold flavor with Fresh Butter </p>
+<div class="product-price">$22.99</div>
+<button class="btn btn-coffee-primary w-100" onclick="addToCart('Colombian Dark Roast', 22.99)">
+<i class="fas fa-plus me-2"></i>Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="product-card">
+<div class="product-image">
+<img alt="Guatemala Antigua" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"/>
+<div class="position-absolute top-0 start-0 m-3">
+<span class="badge bg-success">Organic</span>
+</div>
+</div>
+<div class="product-info">
+<h5 class="product-title">Guatemala Antigua Roast </h5>
+<p class="product-description">Balanced with spicy and smoky notes</p>
+<div class="product-price">$26.99</div>
+<button class="btn btn-coffee-primary w-100" onclick="addToCart('Guatemala Antigua', 26.99)">
+<i class="fas fa-plus me-2"></i>Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="product-card">
+<div class="product-image">
+<img alt="House Blend" src="../imgs/drink2.jpg"/>
+</div>
+<div class="product-info">
+<h5 class="product-title">Organic House Blend Oam</h5>
+<p class="product-description">Our signature balanced blend perfect for everyday</p>
+<div class="product-price">$20.99</div>
+<button class="btn btn-coffee-primary w-100" onclick="addToCart('House Blend', 20.99)">
+<i class="fas fa-plus me-2"></i>Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<div class="swiper-pagination"></div>
+</div>
+</div>
+</section>
+<!-- About Preview -->
+<section class="about-section">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+<h2 class="display-4 fw-bold mb-4" style="color: var(--coffee-brown);">About Streak Café</h2>
+<p class="lead mb-4">
+                        At Streak Café, we're passionate about bringing you the finest coffee experience. From bean to cup, every step is crafted with care.
+                    </p>
+<a class="btn btn-coffee-primary" href="omar_s_story.html">
+<i class="fas fa-book-open me-2"></i>Learn More
+                    </a>
+</div>
+<div class="col-lg-6" data-aos="fade-left">
+<div class="row g-4">
+<div class="col-md-4">
+<div class="feature-box">
+<div class="feature-icon">
+<i class="fas fa-seedling"></i>
+</div>
+<h5>Premium Beans</h5>
+<p>Sourced from finest farms</p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="feature-box">
+<div class="feature-icon">
+<i class="fas fa-coffee"></i>
+</div>
+<h5>Expert Roasting</h5>
+<p>Perfectly roasted for unique flavors</p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="feature-box">
+<div class="feature-icon">
+<i class="fas fa-leaf"></i>
+</div>
+<h5>Sustainable</h5>
+<p>Committed to ethical practices</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer-section">
+<div class="container">
+<div class="row justify-content-center text-center">
+<div class="col-md-8">
+<div class="footer-brand">
+<i class="fas fa-coffee"></i> Streak Café
+                    </div>
+<div class="mb-3">
+<p class="mb-1"><strong>Owner:</strong> Omar Ashraf</p>
+<p class="mb-1"><strong>Phone:</strong> 01006389271</p>
+<p class="mb-1"><strong>Email:</strong> omar00@gmail.com</p>
+</div>
+<hr style="border-color: var(--coffee-gold);"/>
+<p class="mb-0 opacity-75">
+                        © 2025 Streak Café. All rights reserved. | Where Every Sip Feels Special
+                    </p>
+</div>
+</div>
+</div>
+</footer>
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Login to Omar Café</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form id="loginForm">
+<div class="mb-3">
+<label class="form-label" for="email">Email</label>
+<input class="form-control" id="email" required="" type="email"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="password">Password</label>
+<input class="form-control" id="password" required="" type="password"/>
+</div>
+<div class="d-grid gap-2">
+<button class="btn btn-coffee-primary" type="submit">Login</button>
+<button class="btn btn-outline-secondary" onclick="showRegisterModal()" type="button">Register</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<!-- Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Register for Omar Café</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form id="registerForm">
+<div class="mb-3">
+<label class="form-label" for="fullName">Full Name</label>
+<input class="form-control" id="fullName" required="" type="text"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="regEmail">Email</label>
+<input class="form-control" id="regEmail" required="" type="email"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="regPassword">Password</label>
+<input class="form-control" id="regPassword" required="" type="password"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="confirmPassword">Confirm Password</label>
+<input class="form-control" id="confirmPassword" required="" type="password"/>
+</div>
+<div class="d-grid">
+<button class="btn btn-coffee-primary" type="submit">Register</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true
+        });
+
+        // Initialize Swiper
+        const swiper = new Swiper('.featuredSwiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                768: {
+                    slidesPerView: 3,
+                },
+                1024: {
+                    slidesPerView: 4,
+                },
+            },
+        });
+
+        // Authentication Functions
+        function showLoginModal() {
+            const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+            loginModal.show();
+        }
+
+        function showRegisterModal() {
+            const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+            if (loginModal) loginModal.hide();
+            
+            const registerModal = new bootstrap.Modal(document.getElementById('registerModal'));
+            registerModal.show();
+        }
+
+        function showLogoutConfirm() {
+            Swal.fire({
+                title: 'Logout Confirmation',
+                text: 'Are you sure you want to logout?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Logout',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    localStorage.removeItem('user');
+                    Swal.fire('Logged Out!', 'You have been successfully logged out.', 'success');
+                }
+            });
+        }
+
+        // Login Form Handler
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Simple validation (in real app, validate against backend)
+            const savedUser = JSON.parse(localStorage.getItem('user')) || null;
+            
+            if (savedUser && savedUser.email === email && savedUser.password === password) {
+                Swal.fire('Success!', 'Login successful!', 'success');
+                bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
+            } else {
+                Swal.fire('Error!', 'Invalid email or password!', 'error');
+            }
+        });
+
+        // Register Form Handler
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('regEmail').value;
+            const password = document.getElementById('regPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                Swal.fire('Error!', 'Passwords do not match!', 'error');
+                return;
+            }
+            
+            const user = { fullName, email, password };
+            localStorage.setItem('user', JSON.stringify(user));
+            
+            Swal.fire('Success!', 'Registration successful! You can now login.', 'success');
+            bootstrap.Modal.getInstance(document.getElementById('registerModal')).hide();
+        });
+
+        // Add to Cart Function
+        function addToCart(productName, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            const existingItem = cart.find(item => item.name === productName);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: productName,
+                    price: price,
+                    quantity: 1,
+                    id: Date.now()
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            Swal.fire({
+                icon: 'success',
+                title: 'Added to Cart!',
+                text: `${productName} has been added to your cart.`,
+                timer: 2000,
+                timerProgressBar: true,
+                showConfirmButton: false
+            });
+
+            // Update cart badge
+            updateCartBadge();
+        }
+
+        // Update Cart Badge
+        function updateCartBadge() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const badge = document.querySelector('.badge');
+            if (badge) {
+                badge.textContent = totalItems;
+                badge.style.display = totalItems > 0 ? 'block' : 'none';
+            }
+        }
+
+        // Initialize cart badge on page load
+        updateCartBadge();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-coffee');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(78, 52, 46, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(78, 52, 46, 0.95)';
+            }
+        });
+    </script>
+
+<div class="modal fade" id="signupModal" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Create an Account</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form id="signupForm">
+<div class="mb-3">
+<label class="form-label" for="signupName">Name</label>
+<input class="form-control" id="signupName" required="" type="text"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="signupEmail">Email</label>
+<input class="form-control" id="signupEmail" required="" type="email"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="signupPassword">Password</label>
+<input class="form-control" id="signupPassword" minlength="6" required="" type="password"/>
+</div>
+<div class="d-grid gap-2">
+<button class="btn btn-coffee-primary" type="submit">Sign Up</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  try {
+    var registered = localStorage.getItem('oc_registered');
+    var loggedIn = localStorage.getItem('oc_logged_in');
+    var showSignupFirst = !registered;
+    if (showSignupFirst) {
+      var signupEl = document.getElementById('signupModal');
+      if (signupEl && typeof bootstrap !== 'undefined') {
+        var sm = new bootstrap.Modal(signupEl);
+        sm.show();
+      }
+    } else if (!loggedIn) {
+      var loginEl = document.getElementById('loginModal');
+      if (loginEl && typeof bootstrap !== 'undefined') {
+        var lm = new bootstrap.Modal(loginEl);
+        lm.show();
+      }
+    }
+    // Signup handler
+    var signupForm = document.getElementById('signupForm');
+    if (signupForm) {
+      signupForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        localStorage.setItem('oc_registered', '1');
+        // Hide signup, show login
+        var signupEl = document.getElementById('signupModal');
+        if (signupEl && typeof bootstrap !== 'undefined') {
+          bootstrap.Modal.getOrCreateInstance(signupEl).hide();
+        }
+        var loginEl = document.getElementById('loginModal');
+        if (loginEl && typeof bootstrap !== 'undefined') {
+          bootstrap.Modal.getOrCreateInstance(loginEl).show();
+        }
+      });
+    }
+    // Login handler
+    var loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+      loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        localStorage.setItem('oc_logged_in', '1');
+        var loginEl = document.getElementById('loginModal');
+        if (loginEl && typeof bootstrap !== 'undefined') {
+          bootstrap.Modal.getOrCreateInstance(loginEl).hide();
+        }
+        // Optional: update UI to reflect logged-in state
+        var userIcon = document.querySelector('[onclick="showLoginModal()"]');
+        if (userIcon) userIcon.setAttribute('title','Logged in');
+      });
+    }
+  } catch(e) { console.warn(e); }
+});
+// utility for existing icons
+function showLoginModal(){
+  var loginEl = document.getElementById('loginModal');
+  if (loginEl && typeof bootstrap !== 'undefined') {
+    bootstrap.Modal.getOrCreateInstance(loginEl).show();
+  }
+}
+</script>
+</body>
+</html>

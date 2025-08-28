@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shopping Cart - Streak Café</title>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- AOS Animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+<!-- Custom CSS -->
+<link href="../css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-coffee fixed-top">
+<div class="container">
+<a class="navbar-brand" href="homepage.html">
+<i class="fas fa-coffee"></i> Sreak Café
+            </a>
+<button class="navbar-toggler border-0" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+<i class="fas fa-bars text-white"></i>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav mx-auto">
+<li class="nav-item">
+<a class="nav-link" href="homepage.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="coffee_collection.html">Products</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="omar_s_story.html">About</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="brewing_guides_hub.html">Guides</a>
+</li>
+</ul>
+<ul class="navbar-nav mx-auto">
+<li class="nav-item">
+<a class="nav-link position-relative active" href="shopping_cart_checkout.html">
+<i class="fas fa-shopping-cart"></i>
+<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark" id="cartBadge">0</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#" onclick="showLoginModal()">
+<i class="fas fa-user"></i>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#" onclick="showLogoutConfirm()">
+<i class="fas fa-sign-out-alt"></i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<!-- Header Section -->
+<section class="py-5 mt-5" style="background-color: var(--coffee-beige);">
+<div class="container">
+<div class="row">
+<div class="col-12 text-center" data-aos="fade-up">
+<h1 class="display-3 fw-bold mb-3" style="color: var(--coffee-brown);">Shopping Cart</h1>
+<p class="lead mb-0">Review your selected items and proceed to checkout</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Cart Content -->
+<section class="py-5 bg-white">
+<div class="container">
+<div class="row">
+<!-- Cart Items -->
+<div class="col-lg-8">
+<div class="card mb-4" data-aos="fade-right">
+<div class="card-header" style="background-color: var(--coffee-beige);">
+<h5 class="mb-0"><i class="fas fa-shopping-cart me-2"></i>Cart Items</h5>
+</div>
+<div class="card-body" id="cartItems">
+<!-- Cart items will be populated here -->
+</div>
+</div>
+</div>
+<!-- Order Summary -->
+<div class="col-lg-4">
+<div class="card" data-aos="fade-left">
+<div class="card-header" style="background-color: var(--coffee-beige);">
+<h5 class="mb-0"><i class="fas fa-receipt me-2"></i>Order Summary</h5>
+</div>
+<div class="card-body">
+<div class="d-flex justify-content-between mb-2">
+<span>Subtotal:</span>
+<span id="subtotal">$0.00</span>
+</div>
+<div class="d-flex justify-content-between mb-2">
+<span>Shipping:</span>
+<span id="shipping">$5.99</span>
+</div>
+<div class="d-flex justify-content-between mb-2">
+<span>Tax:</span>
+<span id="tax">$0.00</span>
+</div>
+<hr/>
+<div class="d-flex justify-content-between fw-bold mb-3">
+<span>Total:</span>
+<span id="total">$0.00</span>
+</div>
+<div class="d-grid gap-2">
+<button class="btn btn-coffee-primary btn-lg" onclick="proceedToCheckout()">
+<i class="fas fa-credit-card me-2"></i>Checkout
+                                </button>
+<a class="btn btn-outline-secondary" href="coffee_collection.html">
+<i class="fas fa-arrow-left me-2"></i>Continue Shopping
+                                </a>
+</div>
+</div>
+</div>
+<!-- Promo Code -->
+<div class="card mt-4" data-aos="fade-left" data-aos-delay="100">
+<div class="card-header" style="background-color: var(--coffee-beige);">
+<h6 class="mb-0"><i class="fas fa-tag me-2"></i>Promo Code</h6>
+</div>
+<div class="card-body">
+<div class="input-group">
+<input class="form-control" id="promoCode" placeholder="Enter promo code" type="text"/>
+<button class="btn btn-coffee-primary" onclick="applyPromoCode()">Apply</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer-section">
+<div class="container">
+<div class="row justify-content-center text-center">
+<div class="col-md-8">
+<div class="footer-brand">
+<i class="fas fa-coffee"></i> Streak Café
+                    </div>
+<div class="mb-3">
+<p class="mb-1"><strong>Owner:</strong> Omar Ashraf</p>
+<p class="mb-1"><strong>Phone:</strong> 01006389271</p>
+<p class="mb-1"><strong>Email:</strong> omar00@gmail.com</p>
+</div>
+<hr style="border-color: var(--coffee-gold);"/>
+<p class="mb-0 opacity-75">
+                        © 2025 Streak Café. All rights reserved. | Where Every Sip Feels Special
+                    </p>
+</div>
+</div>
+</div>
+</footer>
+<!-- Checkout Modal -->
+<div class="modal fade" id="checkoutModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Checkout</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form id="checkoutForm">
+<div class="row">
+<div class="col-md-6">
+<h6>Shipping Information</h6>
+<div class="mb-3">
+<label class="form-label" for="fullName">Full Name</label>
+<input class="form-control" id="fullName" required="" type="text"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="address">Address</label>
+<input class="form-control" id="address" required="" type="text"/>
+</div>
+<div class="row">
+<div class="col-md-8">
+<div class="mb-3">
+<label class="form-label" for="city">City</label>
+<input class="form-control" id="city" required="" type="text"/>
+</div>
+</div>
+<div class="col-md-4">
+<div class="mb-3">
+<label class="form-label" for="zip">ZIP Code</label>
+<input class="form-control" id="zip" required="" type="text"/>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<h6>Payment Information</h6>
+<div class="mb-3">
+<label class="form-label" for="cardNumber">Card Number</label>
+<input class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" required="" type="text"/>
+</div>
+<div class="row">
+<div class="col-md-8">
+<div class="mb-3">
+<label class="form-label" for="expiry">Expiry Date</label>
+<input class="form-control" id="expiry" placeholder="MM/YY" required="" type="text"/>
+</div>
+</div>
+<div class="col-md-4">
+<div class="mb-3">
+<label class="form-label" for="cvv">CVV</label>
+<input class="form-control" id="cvv" placeholder="123" required="" type="text"/>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="cardName">Name on Card</label>
+<input class="form-control" id="cardName" required="" type="text"/>
+</div>
+</div>
+</div>
+<div class="d-grid">
+<button class="btn btn-coffee-primary btn-lg" type="submit">
+<i class="fas fa-lock me-2"></i>Complete Order
+                            </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true
+        });
+
+        // Global variables
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let appliedPromo = null;
+
+        // Display cart items
+        function displayCartItems() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="text-center py-5">
+                        <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
+                        <h5>Your cart is empty</h5>
+                        <p class="text-muted">Add some delicious coffee to get started!</p>
+                        <a href="coffee_collection.html" class="btn btn-coffee-primary">
+                            <i class="fas fa-coffee me-2"></i>Shop Coffee
+                        </a>
+                    </div>
+                `;
+                return;
+            }
+
+            let cartHTML = '';
+            cart.forEach(item => {
+                cartHTML += `
+                    <div class="row align-items-center mb-3 pb-3 border-bottom">
+                        <div class="col-md-2">
+                            <div class="product-image-small bg-light rounded d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                                <i class="fas fa-coffee fa-2x" style="color: var(--coffee-brown);"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h6 class="mb-1">${item.name}</h6>
+                            <small class="text-muted">Premium Coffee Blend</small>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="input-group input-group-sm">
+                                <button class="btn btn-outline-secondary" onclick="updateQuantity(${item.id}, -1)">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <input type="number" class="form-control text-center" value="${item.quantity}" readonly>
+                                <button class="btn btn-outline-secondary" onclick="updateQuantity(${item.id}, 1)">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <strong>$${(item.price * item.quantity).toFixed(2)}</strong>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <button class="btn btn-outline-danger btn-sm" onclick="removeFromCart(${item.id})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartItemsContainer.innerHTML = cartHTML;
+        }
+
+        // Update quantity
+        function updateQuantity(itemId, change) {
+            const item = cart.find(item => item.id === itemId);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeFromCart(itemId);
+                } else {
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    displayCartItems();
+                    updateOrderSummary();
+                    updateCartBadge();
+                }
+            }
+        }
+
+        // Remove from cart
+        function removeFromCart(itemId) {
+            Swal.fire({
+                title: 'Remove Item?',
+                text: 'Are you sure you want to remove this item from your cart?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Remove',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    cart = cart.filter(item => item.id !== itemId);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    displayCartItems();
+                    updateOrderSummary();
+                    updateCartBadge();
+                    
+                    Swal.fire('Removed!', 'Item has been removed from your cart.', 'success');
+                }
+            });
+        }
+
+        // Update order summary
+        function updateOrderSummary() {
+            const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            let shipping = subtotal > 50 ? 0 : 5.99;
+            const tax = subtotal * 0.08; // 8% tax
+            let total = subtotal + shipping + tax;
+
+            // Apply promo code discount
+            if (appliedPromo) {
+                if (appliedPromo.type === 'percentage') {
+                    total -= total * (appliedPromo.discount / 100);
+                } else if (appliedPromo.type === 'fixed') {
+                    total -= appliedPromo.discount;
+                }
+            }
+
+            document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('shipping').textContent = shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)}`;
+            document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('total').textContent = `$${Math.max(0, total).toFixed(2)}`;
+        }
+
+        // Update cart badge
+        function updateCartBadge() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const badge = document.getElementById('cartBadge');
+            if (badge) {
+                badge.textContent = totalItems;
+                badge.style.display = totalItems > 0 ? 'block' : 'none';
+            }
+        }
+
+        // Apply promo code
+        function applyPromoCode() {
+            const promoCode = document.getElementById('promoCode').value.trim().toLowerCase();
+            
+            const promoCodes = {
+                'welcome10': { type: 'percentage', discount: 10, description: '10% off your order' },
+                'freeship': { type: 'fixed', discount: 5.99, description: 'Free shipping' },
+                'coffee20': { type: 'percentage', discount: 20, description: '20% off coffee' }
+            };
+
+            if (promoCodes[promoCode]) {
+                appliedPromo = promoCodes[promoCode];
+                updateOrderSummary();
+                
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Promo Code Applied!',
+                    text: promoCodes[promoCode].description,
+                    timer: 2000
+                });
+                
+                document.getElementById('promoCode').value = '';
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Invalid Promo Code',
+                    text: 'The promo code you entered is not valid.',
+                    timer: 2000
+                });
+            }
+        }
+
+        // Proceed to checkout
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Empty Cart',
+                    text: 'Please add items to your cart before checkout.'
+                });
+                return;
+            }
+
+            const checkoutModal = new bootstrap.Modal(document.getElementById('checkoutModal'));
+            checkoutModal.show();
+        }
+
+        // Handle checkout form
+        document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate order processing
+            Swal.fire({
+                title: 'Processing Order...',
+                text: 'Please wait while we process your order.',
+                icon: 'info',
+                showConfirmButton: false,
+                timer: 3000
+            }).then(() => {
+                // Clear cart
+                cart = [];
+                localStorage.setItem('cart', JSON.stringify(cart));
+                
+                // Show success message
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Order Successful!',
+                    text: 'Thank you for your order! You will receive a confirmation email shortly.',
+                    confirmButtonText: 'Continue Shopping'
+                }).then(() => {
+                    window.location.href = 'coffee_collection.html';
+                });
+            });
+
+            // Hide modal
+            bootstrap.Modal.getInstance(document.getElementById('checkoutModal')).hide();
+        });
+
+        // Authentication Functions
+        function showLoginModal() {
+            Swal.fire({
+                title: 'Login Required',
+                text: 'Please login to access your account',
+                icon: 'info',
+                confirmButtonText: 'Go to Homepage'
+            }).then(() => {
+                window.location.href = 'homepage.html';
+            });
+        }
+
+        function showLogoutConfirm() {
+            Swal.fire({
+                title: 'Logout Confirmation',
+                text: 'Are you sure you want to logout?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Logout',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    localStorage.removeItem('user');
+                    Swal.fire('Logged Out!', 'You have been successfully logged out.', 'success');
+                }
+            });
+        }
+
+        // Format card number input
+        document.getElementById('cardNumber').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+            let formattedValue = value.match(/.{1,4}/g)?.join(' ');
+            if (formattedValue) {
+                e.target.value = formattedValue;
+            }
+        });
+
+        // Format expiry date input
+        document.getElementById('expiry').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            e.target.value = value;
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            displayCartItems();
+            updateOrderSummary();
+            updateCartBadge();
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-coffee');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(78, 52, 46, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(78, 52, 46, 0.95)';
+            }
+        });
+    </script>
+
+<div class="modal fade" id="signupModal" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Create an Account</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form id="signupForm">
+<div class="mb-3">
+<label class="form-label" for="signupName">Name</label>
+<input class="form-control" id="signupName" required="" type="text"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="signupEmail">Email</label>
+<input class="form-control" id="signupEmail" required="" type="email"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="signupPassword">Password</label>
+<input class="form-control" id="signupPassword" minlength="6" required="" type="password"/>
+</div>
+<div class="d-grid gap-2">
+<button class="btn btn-coffee-primary" type="submit">Sign Up</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="loginModal" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Login to Omar Café</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form id="loginForm">
+<div class="mb-3">
+<label class="form-label" for="email">Email</label>
+<input class="form-control" id="email" required="" type="email"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="password">Password</label>
+<input class="form-control" id="password" required="" type="password"/>
+</div>
+<div class="d-grid gap-2">
+<button class="btn btn-coffee-primary" type="submit">Login</button>
+<button class="btn btn-outline-secondary" onclick="showRegisterModal()" type="button">Register</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  try {
+    var registered = localStorage.getItem('oc_registered');
+    var loggedIn = localStorage.getItem('oc_logged_in');
+    var showSignupFirst = !registered;
+    if (showSignupFirst) {
+      var signupEl = document.getElementById('signupModal');
+      if (signupEl && typeof bootstrap !== 'undefined') {
+        var sm = new bootstrap.Modal(signupEl);
+        sm.show();
+      }
+    } else if (!loggedIn) {
+      var loginEl = document.getElementById('loginModal');
+      if (loginEl && typeof bootstrap !== 'undefined') {
+        var lm = new bootstrap.Modal(loginEl);
+        lm.show();
+      }
+    }
+    // Signup handler
+    var signupForm = document.getElementById('signupForm');
+    if (signupForm) {
+      signupForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        localStorage.setItem('oc_registered', '1');
+        // Hide signup, show login
+        var signupEl = document.getElementById('signupModal');
+        if (signupEl && typeof bootstrap !== 'undefined') {
+          bootstrap.Modal.getOrCreateInstance(signupEl).hide();
+        }
+        var loginEl = document.getElementById('loginModal');
+        if (loginEl && typeof bootstrap !== 'undefined') {
+          bootstrap.Modal.getOrCreateInstance(loginEl).show();
+        }
+      });
+    }
+    // Login handler
+    var loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+      loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        localStorage.setItem('oc_logged_in', '1');
+        var loginEl = document.getElementById('loginModal');
+        if (loginEl && typeof bootstrap !== 'undefined') {
+          bootstrap.Modal.getOrCreateInstance(loginEl).hide();
+        }
+        // Optional: update UI to reflect logged-in state
+        var userIcon = document.querySelector('[onclick="showLoginModal()"]');
+        if (userIcon) userIcon.setAttribute('title','Logged in');
+      });
+    }
+  } catch(e) { console.warn(e); }
+});
+// utility for existing icons
+function showLoginModal(){
+  var loginEl = document.getElementById('loginModal');
+  if (loginEl && typeof bootstrap !== 'undefined') {
+    bootstrap.Modal.getOrCreateInstance(loginEl).show();
+  }
+}
+</script>
+</body>
+</html>
