@@ -1,0 +1,550 @@
+/* Omar Café Custom Styles with Bootstrap Integration */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+:root {
+  /* Omar Café Brand Colors */
+  --coffee-brown: #4E342E;
+  --coffee-beige: #F5F5DC;
+  --coffee-light-cream: #FFF8E1;
+  --coffee-gold: #C9A66B;
+  --coffee-gray: #757575;
+  --coffee-white: #FFFFFF;
+}
+
+/* Base Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--coffee-brown);
+  background-color: var(--coffee-light-cream);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Custom Bootstrap Overrides */
+.btn-coffee-primary {
+  background-color: var(--coffee-gold);
+  border-color: var(--coffee-gold);
+  color: var(--coffee-brown);
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 30px;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.btn-coffee-primary:hover {
+  background-color: var(--coffee-brown);
+  border-color: var(--coffee-brown);
+  color: var(--coffee-white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(78, 52, 46, 0.3);
+}
+
+.btn-coffee-secondary {
+  background-color: transparent;
+  border: 2px solid var(--coffee-white);
+  color: var(--coffee-white);
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 30px;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.btn-coffee-secondary:hover {
+  background-color: var(--coffee-white);
+  color: var(--coffee-brown);
+  transform: translateY(-2px);
+}
+
+/* Navigation Styles */
+.navbar-coffee {
+  background: rgba(78, 52, 46, 0.95) !important;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--coffee-gold) !important;
+}
+
+.navbar-nav .nav-link {
+  color: var(--coffee-white) !important;
+  font-weight: 500;
+  margin: 0 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--coffee-gold);
+  transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero-section {
+  height: 100vh;
+  background: linear-gradient(135deg, rgba(78, 52, 46, 0.8), rgba(201, 166, 107, 0.6)), 
+              url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--coffee-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* Coffee Animation */
+.coffee-animation {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  font-size: 8rem;
+  opacity: 0.3;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(-50%) rotate(0deg); }
+  50% { transform: translateY(-60%) rotate(10deg); }
+}
+
+/* 3D Coffee Cup Animation */
+.coffee-cup-3d {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(145deg, #8B4513, #A0522D);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  position: relative;
+  margin: 0 auto 2rem;
+  animation: pourCoffee 4s ease-in-out infinite;
+}
+
+.coffee-cup-3d::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 30px;
+  background: linear-gradient(145deg, #4E342E, #6B4E3D);
+  border-radius: 50%;
+}
+
+.coffee-cup-3d::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  animation: steam 2s ease-in-out infinite;
+}
+
+@keyframes pourCoffee {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-5deg) scale(1.05); }
+  50% { transform: rotate(0deg) scale(1.1); }
+  75% { transform: rotate(5deg) scale(1.05); }
+}
+
+@keyframes steam {
+  0% { opacity: 0.7; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 0.3; transform: translateX(-50%) translateY(-10px); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+}
+
+/* Product Cards */
+.product-card {
+  background: var(--coffee-white);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(45deg, var(--coffee-brown), var(--coffee-gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--coffee-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.1);
+}
+
+.product-info {
+  padding: 1.5rem;
+}
+
+.product-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--coffee-brown);
+}
+
+.product-description {
+  color: var(--coffee-gray);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.product-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--coffee-gold);
+  margin-bottom: 1rem;
+}
+
+/* About Section */
+.about-section {
+  padding: 5rem 0;
+  background: var(--coffee-beige);
+}
+
+.feature-box {
+  text-align: center;
+  padding: 2rem;
+  background: var(--coffee-white);
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  color: var(--coffee-gold);
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer-section {
+  background: var(--coffee-brown);
+  color: var(--coffee-white);
+  padding: 3rem 0 1rem;
+}
+
+.footer-brand {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--coffee-gold);
+  margin-bottom: 1rem;
+}
+
+/* SweetAlert Custom Styling */
+.swal2-popup {
+  border-radius: 15px !important;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.swal2-title {
+  font-family: 'Poppins', sans-serif !important;
+  color: var(--coffee-brown) !important;
+}
+
+.swal2-confirm {
+  background-color: var(--coffee-gold) !important;
+  border: none !important;
+  border-radius: 25px !important;
+  padding: 0.75rem 2rem !important;
+  font-weight: 600 !important;
+}
+
+/* AOS Animation Overrides */
+[data-aos="fade-up"] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition-property: opacity, transform;
+  transition-duration: 0.8s;
+}
+
+[data-aos="fade-up"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Swiper Custom Styling */
+.swiper {
+  padding-bottom: 3rem;
+}
+
+.swiper-pagination-bullet {
+  background: var(--coffee-gold) !important;
+  opacity: 0.5 !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  background: var(--coffee-brown) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .coffee-animation {
+    display: none;
+  }
+  
+  .navbar-nav {
+    background: rgba(78, 52, 46, 0.95);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .coffee-cup-3d {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .product-image {
+    height: 200px;
+    font-size: 2rem;
+  }
+  
+  .feature-box {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Loading Animation */
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid var(--coffee-white);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* === Omar Café: tweaks per request === */
+
+/* Center navbar links and keep logo left is handled via HTML classes (mx-auto). */
+
+/* Equalize home cards (product-card in Swiper & feature-box) */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.product-card .product-image {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+.product-card .product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.product-card .product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+/* Make text over product images smaller and neat */
+.product-image .badge,
+.product-image .overlay-text,
+.product-card .badge {
+  font-size: 0.75rem;
+  line-height: 1.1;
+  padding: .35rem .5rem;
+  border-radius: .5rem;
+}
+
+/* Feature boxes same height */
+.feature-box {
+  height: 100%;
+  padding: 1.25rem;
+  border-radius: 16px;
+}
+
+/* Ensure grid children stretch equally */
+.row > [class*="col-"] > .feature-box,
+.swiper-slide > .product-card,
+.swiper-slide .product-card {
+  height: 100%;
+}
+
+/* Swiper slides auto height to fit equal cards nicely */
+.swiper .swiper-slide {
+  display: flex;
+  height: auto;
+}
+
+
+/* === Omar Café Tweaks 2 === */
+
+/* Navbar layout */
+.navbar .navbar-brand {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.navbar .navbar-nav.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.navbar .navbar-nav.ms-auto {
+  margin-left: auto !important;
+}
+
+/* Cards equal height */
+.product-card, .feature-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  border-radius: 16px;
+}
+
+/* Product card image */
+.product-card .product-image {
+  position: relative;
+  flex-shrink: 0;
+  height: 240px;
+  overflow: hidden;
+}
+.product-card .product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Product info alignment */
+.product-card .product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.product-card .product-info .price,
+.product-card .product-info .btn {
+  margin-top: auto;
+}
+
+/* Badge / overlay always top-left */
+.product-card .product-image .badge,
+.product-card .product-image .overlay-text {
+  position: absolute;
+  top: .75rem;
+  left: .75rem;
+  font-size: 0.75rem;
+  line-height: 1.1;
+  padding: .35rem .5rem;
+  border-radius: .5rem;
+}
+
+/* Feature boxes equalize */
+.feature-box {
+  padding: 1.25rem;
+  border-radius: 16px;
+}
+
+/* Swiper slide align */
+.swiper .swiper-slide {
+  display: flex;
+  height: auto;
+}
+.swiper .swiper-slide > * {
+  flex: 1;
+}

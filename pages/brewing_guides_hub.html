@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Brewing Guides - Streak Café</title>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- AOS Animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+<!-- Custom CSS -->
+<link href="../css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-coffee fixed-top">
+<div class="container">
+<a class="navbar-brand" href="homepage.html">
+<i class="fas fa-coffee"></i> Streak Café
+            </a>
+<button class="navbar-toggler border-0" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+<i class="fas fa-bars text-white"></i>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav mx-auto">
+<li class="nav-item">
+<a class="nav-link" href="homepage.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="coffee_collection.html">Products</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="omar_s_story.html">About</a>
+</li>
+<li class="nav-item">
+<a class="nav-link active" href="brewing_guides_hub.html">Guides</a>
+</li>
+</ul>
+<ul class="navbar-nav mx-auto">
+<li class="nav-item">
+<a class="nav-link position-relative" href="shopping_cart_checkout.html">
+<i class="fas fa-shopping-cart"></i>
+<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">0</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#" onclick="showLoginModal()">
+<i class="fas fa-user"></i>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#" onclick="showLogoutConfirm()">
+<i class="fas fa-sign-out-alt"></i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<!-- Header Section -->
+<section class="py-5 mt-5" style="background-color: var(--coffee-beige);">
+<div class="container">
+<div class="row">
+<div class="col-12 text-center" data-aos="fade-up">
+<h1 class="display-3 fw-bold mb-3" style="color: var(--coffee-brown);">Brewing Guides</h1>
+<p class="lead mb-0">Master the art of coffee brewing with Omar's expert guidance</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Brewing Methods Grid -->
+<section class="py-5 bg-white">
+<div class="container">
+<div class="row g-4">
+<!-- Pour Over Guide -->
+<div class="col-lg-6" data-aos="fade-up">
+<div class="card h-100">
+<div class="card-img-top position-relative" style="height: 250px; background: linear-gradient(45deg, var(--coffee-brown), var(--coffee-gold)); display: flex; align-items: center; justify-content: center;">
+<i class="fas fa-filter fa-4x text-white"></i>
+<div class="position-absolute top-0 start-0 m-3">
+<span class="badge bg-primary">Beginner Friendly</span>
+</div>
+</div>
+<div class="card-body">
+<h5 class="card-title">Pour Over Method</h5>
+<p class="card-text">Learn the classic pour-over technique that brings out the bright, clean flavors of your coffee beans.</p>
+<ul class="list-unstyled mb-3">
+<li><i class="fas fa-clock me-2 text-muted"></i>Brew Time: 4-6 minutes</li>
+<li><i class="fas fa-thermometer-half me-2 text-muted"></i>Water Temp: 200°F</li>
+<li><i class="fas fa-balance-scale me-2 text-muted"></i>Ratio: 1:15-17</li>
+</ul>
+<button class="btn btn-coffee-primary" onclick="showBrewingGuide('pourover')">View Guide</button>
+</div>
+</div>
+</div>
+<!-- French Press Guide -->
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+<div class="card h-100">
+<div class="card-img-top position-relative" style="height: 250px; background: linear-gradient(45deg, var(--coffee-gold), var(--coffee-brown)); display: flex; align-items: center; justify-content: center;">
+<i class="fas fa-mug-hot fa-4x text-white"></i>
+<div class="position-absolute top-0 start-0 m-3">
+<span class="badge bg-success">Easy</span>
+</div>
+</div>
+<div class="card-body">
+<h5 class="card-title">French Press</h5>
+<p class="card-text">Master the full-bodied, rich brewing method that extracts maximum flavors from your coffee grounds.</p>
+<ul class="list-unstyled mb-3">
+<li><i class="fas fa-clock me-2 text-muted"></i>Brew Time: 4 minutes</li>
+<li><i class="fas fa-thermometer-half me-2 text-muted"></i>Water Temp: 200°F</li>
+<li><i class="fas fa-balance-scale me-2 text-muted"></i>Ratio: 1:12-15</li>
+</ul>
+<button class="btn btn-coffee-primary" onclick="showBrewingGuide('frenchpress')">View Guide</button>
+</div>
+</div>
+</div>
+<!-- Espresso Guide -->
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+<div class="card h-100">
+<div class="card-img-top position-relative" style="height: 250px; background: linear-gradient(45deg, #8B4513, var(--coffee-brown)); display: flex; align-items: center; justify-content: center;">
+<i class="fas fa-coffee fa-4x text-white"></i>
+<div class="position-absolute top-0 start-0 m-3">
+<span class="badge bg-warning text-dark">Advanced</span>
+</div>
+</div>
+<div class="card-body">
+<h5 class="card-title">Espresso</h5>
+<p class="card-text">Perfect the concentrated, intense brewing method that forms the base of many coffee drinks.</p>
+<ul class="list-unstyled mb-3">
+<li><i class="fas fa-clock me-2 text-muted"></i>Brew Time: 25-30 seconds</li>
+<li><i class="fas fa-thermometer-half me-2 text-muted"></i>Water Temp: 190-196°F</li>
+<li><i class="fas fa-balance-scale me-2 text-muted"></i>Ratio: 1:2-2.5</li>
+</ul>
+<button class="btn btn-coffee-primary" onclick="showBrewingGuide('espresso')">View Guide</button>
+</div>
+</div>
+</div>
+<!-- AeroPress Guide -->
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+<div class="card h-100">
+<div class="card-img-top position-relative" style="height: 250px; background: linear-gradient(45deg, var(--coffee-gray), var(--coffee-gold)); display: flex; align-items: center; justify-content: center;">
+<i class="fas fa-rocket fa-4x text-white"></i>
+<div class="position-absolute top-0 start-0 m-3">
+<span class="badge bg-info">Versatile</span>
+</div>
+</div>
+<div class="card-body">
+<h5 class="card-title">AeroPress</h5>
+<p class="card-text">Discover the innovative pressure brewing method that produces clean, smooth coffee with minimal effort.</p>
+<ul class="list-unstyled mb-3">
+<li><i class="fas fa-clock me-2 text-muted"></i>Brew Time: 1-3 minutes</li>
+<li><i class="fas fa-thermometer-half me-2 text-muted"></i>Water Temp: 185-205°F</li>
+<li><i class="fas fa-balance-scale me-2 text-muted"></i>Ratio: 1:15-17</li>
+</ul>
+<button class="btn btn-coffee-primary" onclick="showBrewingGuide('aeropress')">View Guide</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Coffee Tips Section -->
+<section class="about-section">
+<div class="container">
+<div class="row">
+<div class="col-12 text-center mb-5" data-aos="fade-up">
+<h2 class="display-4 fw-bold mb-3" style="color: var(--coffee-brown);">Omar's Pro Tips</h2>
+<p class="lead">Essential knowledge for brewing the perfect cup</p>
+</div>
+</div>
+<div class="row g-4">
+<div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+<div class="feature-box">
+<div class="feature-icon">
+<i class="fas fa-seedling"></i>
+</div>
+<h5>Fresh Beans Matter</h5>
+<p>Always use coffee beans that have been roasted within 2-4 weeks. The roast date should be clearly marked on the package.</p>
+</div>
+</div>
+<div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+<div class="feature-box">
+<div class="feature-icon">
+<i class="fas fa-balance-scale"></i>
+</div>
+<h5>Proper Ratios</h5>
+<p>Use a digital scale to measure your coffee and water. The golden ratio is typically 1:15 to 1:17 (coffee to water).</p>
+</div>
+</div>
+<div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+<div class="feature-box">
+<div class="feature-icon">
+<i class="fas fa-thermometer-half"></i>
+</div>
+<h5>Water Temperature</h5>
+<p>Optimal water temperature is between 195-205°F (90-96°C). Too hot burns the coffee, too cool under-extracts.</p>
+</div>
+</div>
+<div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+<div class="feature-box">
+<div class="feature-icon">
+<i class="fas fa-cog"></i>
+</div>
+<h5>Grind Size</h5>
+<p>Match your grind size to your brewing method. Coarse for French press, medium for pour-over, fine for espresso.</p>
+</div>
+</div>
+<div class="col-lg-4" data-aos="fade-up" data-aos-delay="500">
+<div class="feature-box">
+<div class="feature-icon">
+<i class="fas fa-clock"></i>
+</div>
+<h5>Timing is Key</h5>
+<p>Each brewing method has its optimal extraction time. Stick to recommended times for the best flavor balance.</p>
+</div>
+</div>
+<div class="col-lg-4" data-aos="fade-up" data-aos-delay="600">
+<div class="feature-box">
+<div class="feature-icon">
+<i class="fas fa-tint"></i>
+</div>
+<h5>Water Quality</h5>
+<p>Use filtered water when possible. Poor water quality can negatively impact even the best coffee beans.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer-section">
+<div class="container">
+<div class="row justify-content-center text-center">
+<div class="col-md-8">
+<div class="footer-brand">
+<i class="fas fa-coffee"></i> Streak Cafe Café
+                    </div>
+<div class="mb-3">
+<p class="mb-1"><strong>Owner:</strong> Omar Ashraf</p>
+<p class="mb-1"><strong>Phone:</strong> 01006389271</p>
+<p class="mb-1"><strong>Email:</strong> omar00@gmail.com</p>
+</div>
+<hr style="border-color: var(--coffee-gold);"/>
+<p class="mb-0 opacity-75">
+                        © 2025 Streak Café. All rights reserved. | Where Every Sip Feels Special
+                    </p>
+</div>
+</div>
+</div>
+</footer>
+<!-- Brewing Guide Modal -->
+<div class="modal fade" id="brewingGuideModal" tabindex="-1">
+<div class="modal-dialog modal-xl">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="guideTitle">Brewing Guide</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body" id="guideContent">
+<!-- Guide content will be inserted here -->
+</div>
+</div>
+</div>
+</div>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true
+        });
+
+        // Brewing guides data
+        const brewingGuides = {
+            pourover: {
+                title: "Pour Over Brewing Guide",
+                content: `
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h6 class="fw-bold mb-3">What You'll Need:</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>Pour-over dripper (V60, Chemex, etc.)</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Paper filter</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Medium-fine ground coffee (22g)</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Hot water (350ml at 200°F)</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Gooseneck kettle</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Digital scale</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Timer</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="fw-bold mb-3">Step-by-Step Instructions:</h6>
+                            <ol>
+                                <li><strong>Prep (0:00):</strong> Place filter in dripper, rinse with hot water</li>
+                                <li><strong>Add Coffee (0:30):</strong> Add ground coffee, create small well in center</li>
+                                <li><strong>Bloom (0:45):</strong> Pour 50ml water in circular motion, wait 30s</li>
+                                <li><strong>First Pour (1:15):</strong> Pour to 150ml total, spiral outward</li>
+                                <li><strong>Second Pour (2:00):</strong> Pour to 250ml total, center to edge</li>
+                                <li><strong>Final Pour (2:45):</strong> Pour remaining water to 350ml</li>
+                                <li><strong>Finish (4:00):</strong> All water should drip through by 4 minutes</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="alert alert-info mt-4">
+                        <i class="fas fa-lightbulb me-2"></i>
+                        <strong>Omar's Tip:</strong> The key to great pour-over is consistent circular motions and maintaining a steady pour rate. Practice makes perfect!
+                    </div>
+                `
+            },
+            frenchpress: {
+                title: "French Press Brewing Guide",
+                content: `
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h6 class="fw-bold mb-3">What You'll Need:</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>French press (8-cup/34oz)</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Coarse ground coffee (30g)</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Hot water (500ml at 200°F)</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Wooden spoon</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Digital scale</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Timer</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="fw-bold mb-3">Step-by-Step Instructions:</h6>
+                            <ol>
+                                <li><strong>Preheat (0:00):</strong> Warm French press with hot water, then empty</li>
+                                <li><strong>Add Coffee (0:30):</strong> Add coarsely ground coffee to press</li>
+                                <li><strong>Add Water (0:45):</strong> Pour all hot water over coffee grounds</li>
+                                <li><strong>Stir (1:00):</strong> Gently stir to ensure all grounds are wet</li>
+                                <li><strong>Place Lid (1:15):</strong> Put lid on with plunger up, wait</li>
+                                <li><strong>Press (4:00):</strong> Slowly press plunger down</li>
+                                <li><strong>Serve (4:30):</strong> Pour immediately to prevent over-extraction</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="alert alert-info mt-4">
+                        <i class="fas fa-lightbulb me-2"></i>
+                        <strong>Omar's Tip:</strong> Use a coarse grind similar to breadcrumbs. Fine grounds will pass through the filter and make your coffee muddy!
+                    </div>
+                `
+            },
+            espresso: {
+                title: "Espresso Brewing Guide",
+                content: `
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h6 class="fw-bold mb-3">What You'll Need:</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>Espresso machine</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Coffee grinder (burr preferred)</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Fine ground coffee (18-20g)</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Tamper</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Digital scale</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Espresso cups</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="fw-bold mb-3">Step-by-Step Instructions:</h6>
+                            <ol>
+                                <li><strong>Preheat:</strong> Run blank shot to warm machine and cup</li>
+                                <li><strong>Dose:</strong> Grind 18-20g coffee directly into portafilter</li>
+                                <li><strong>Level:</strong> Distribute grounds evenly in basket</li>
+                                <li><strong>Tamp:</strong> Apply 30lbs pressure, twist slightly</li>
+                                <li><strong>Extract:</strong> Lock portafilter, start extraction</li>
+                                <li><strong>Time:</strong> Aim for 25-30 second extraction</li>
+                                <li><strong>Yield:</strong> Target 36-40ml output (2:1 ratio)</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="alert alert-warning mt-4">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <strong>Advanced Method:</strong> Espresso requires precise control of grind size, dose, and extraction time. Start with these basics and adjust to taste.
+                    </div>
+                `
+            },
+            aeropress: {
+                title: "AeroPress Brewing Guide",
+                content: `
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h6 class="fw-bold mb-3">What You'll Need:</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>AeroPress with filter</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Medium-fine ground coffee (17g)</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Hot water (250ml at 185°F)</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Stirrer (included)</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Digital scale</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Timer</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="fw-bold mb-3">Step-by-Step Instructions:</h6>
+                            <ol>
+                                <li><strong>Setup (0:00):</strong> Insert filter, rinse, assemble AeroPress</li>
+                                <li><strong>Add Coffee (0:30):</strong> Add ground coffee to chamber</li>
+                                <li><strong>Add Water (0:45):</strong> Pour water to fill line, stir gently</li>
+                                <li><strong>Steep (1:00):</strong> Wait 1 minute for extraction</li>
+                                <li><strong>Flip (2:00):</strong> Flip AeroPress onto cup</li>
+                                <li><strong>Press (2:15):</strong> Press down slowly and steadily</li>
+                                <li><strong>Enjoy (2:45):</strong> Coffee ready in under 3 minutes!</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="alert alert-info mt-4">
+                        <i class="fas fa-lightbulb me-2"></i>
+                        <strong>Omar's Tip:</strong> AeroPress is very forgiving! Experiment with different grind sizes, water temperatures, and steeping times to find your perfect cup.
+                    </div>
+                `
+            }
+        };
+
+        // Show brewing guide
+        function showBrewingGuide(method) {
+            const guide = brewingGuides[method];
+            if (guide) {
+                document.getElementById('guideTitle').textContent = guide.title;
+                document.getElementById('guideContent').innerHTML = guide.content;
+                
+                const modal = new bootstrap.Modal(document.getElementById('brewingGuideModal'));
+                modal.show();
+            }
+        }
+
+        // Update Cart Badge
+        function updateCartBadge() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const badge = document.querySelector('.badge');
+            if (badge) {
+                badge.textContent = totalItems;
+                badge.style.display = totalItems > 0 ? 'block' : 'none';
+            }
+        }
+
+        // Authentication Functions
+        function showLoginModal() {
+            Swal.fire({
+                title: 'Login Required',
+                text: 'Please login to access your account',
+                icon: 'info',
+                confirmButtonText: 'Go to Homepage'
+            }).then(() => {
+                window.location.href = 'homepage.html';
+            });
+        }
+
+        function showLogoutConfirm() {
+            Swal.fire({
+                title: 'Logout Confirmation',
+                text: 'Are you sure you want to logout?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Logout',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    localStorage.removeItem('user');
+                    Swal.fire('Logged Out!', 'You have been successfully logged out.', 'success');
+                }
+            });
+        }
+
+        // Initialize cart badge on page load
+        updateCartBadge();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-coffee');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(78, 52, 46, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(78, 52, 46, 0.95)';
+            }
+        });
+    </script>
+
+<div class="modal fade" id="signupModal" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Create an Account</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form id="signupForm">
+<div class="mb-3">
+<label class="form-label" for="signupName">Name</label>
+<input class="form-control" id="signupName" required="" type="text"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="signupEmail">Email</label>
+<input class="form-control" id="signupEmail" required="" type="email"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="signupPassword">Password</label>
+<input class="form-control" id="signupPassword" minlength="6" required="" type="password"/>
+</div>
+<div class="d-grid gap-2">
+<button class="btn btn-coffee-primary" type="submit">Sign Up</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="loginModal" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Login to Omar Café</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form id="loginForm">
+<div class="mb-3">
+<label class="form-label" for="email">Email</label>
+<input class="form-control" id="email" required="" type="email"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="password">Password</label>
+<input class="form-control" id="password" required="" type="password"/>
+</div>
+<div class="d-grid gap-2">
+<button class="btn btn-coffee-primary" type="submit">Login</button>
+<button class="btn btn-outline-secondary" onclick="showRegisterModal()" type="button">Register</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  try {
+    var registered = localStorage.getItem('oc_registered');
+    var loggedIn = localStorage.getItem('oc_logged_in');
+    var showSignupFirst = !registered;
+    if (showSignupFirst) {
+      var signupEl = document.getElementById('signupModal');
+      if (signupEl && typeof bootstrap !== 'undefined') {
+        var sm = new bootstrap.Modal(signupEl);
+        sm.show();
+      }
+    } else if (!loggedIn) {
+      var loginEl = document.getElementById('loginModal');
+      if (loginEl && typeof bootstrap !== 'undefined') {
+        var lm = new bootstrap.Modal(loginEl);
+        lm.show();
+      }
+    }
+    // Signup handler
+    var signupForm = document.getElementById('signupForm');
+    if (signupForm) {
+      signupForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        localStorage.setItem('oc_registered', '1');
+        // Hide signup, show login
+        var signupEl = document.getElementById('signupModal');
+        if (signupEl && typeof bootstrap !== 'undefined') {
+          bootstrap.Modal.getOrCreateInstance(signupEl).hide();
+        }
+        var loginEl = document.getElementById('loginModal');
+        if (loginEl && typeof bootstrap !== 'undefined') {
+          bootstrap.Modal.getOrCreateInstance(loginEl).show();
+        }
+      });
+    }
+    // Login handler
+    var loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+      loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        localStorage.setItem('oc_logged_in', '1');
+        var loginEl = document.getElementById('loginModal');
+        if (loginEl && typeof bootstrap !== 'undefined') {
+          bootstrap.Modal.getOrCreateInstance(loginEl).hide();
+        }
+        // Optional: update UI to reflect logged-in state
+        var userIcon = document.querySelector('[onclick="showLoginModal()"]');
+        if (userIcon) userIcon.setAttribute('title','Logged in');
+      });
+    }
+  } catch(e) { console.warn(e); }
+});
+// utility for existing icons
+function showLoginModal(){
+  var loginEl = document.getElementById('loginModal');
+  if (loginEl && typeof bootstrap !== 'undefined') {
+    bootstrap.Modal.getOrCreateInstance(loginEl).show();
+  }
+}
+</script>
+</body>
+</html>
